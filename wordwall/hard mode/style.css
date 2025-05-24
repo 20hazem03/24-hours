@@ -1,0 +1,190 @@
+body{
+    background-image:url("../media/images/background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: 0;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    flex-direction:column;
+    height: 100vh;
+    width: 100%;
+}
+
+.reel{
+  margin: 20px;
+  display: grid; 
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr; 
+  grid-template-rows: 1fr 1fr 1fr; 
+  gap: 25px 25px; 
+  grid-template-areas: 
+    ". . . . . ."
+    ". . . . . ."
+    ". . . . . ."; 
+}
+
+
+.flip-card {
+    width: 124px;
+    height: 164px;
+    /* → Sets the size of the entire card container (visible area). */
+  perspective: 1000px;
+  /* Creates a 3D space to make the flip more realistic*/
+}
+
+.flip-card-inner {
+  position: relative;
+  /* to limitate each card content with position absolute in side just in me not in whole page */
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  /* slow motion transition between front and back side */
+  transform-style: preserve-3d;
+  /* preserve 3d space for children content */
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+ .flip {
+  transform: rotateY(180deg);
+  /* shows the back and hides the front. */
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  /* front and back content will be limitated by its corresponded card container */
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  /* this hide the otherside to show just one face */
+}
+
+.flip-card-front {
+  background-color: green;
+  color: rgb(245, 244, 244);
+  font-size: larger;
+}
+
+.flip-card-back {
+  background-color: #2980b9;
+  color: white;
+  transform: rotateY(180deg);
+  /* rotate the back face so it starts out hidden. */
+}
+p{
+  margin: 0;
+}
+@keyframes flashMatch {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.matched {
+  pointer-events: none;
+  border: 3px solid limegreen;
+  box-shadow: 0 0 10px limegreen;
+  animation: flashMatch 0.8s ease;
+}
+@keyframes shake {
+  0% { transform: translateX(0px); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-5px); }
+  100% { transform: translateX(0px); }
+}
+.unmatched {
+  animation: shake 0.8s;
+  border: 2px solid red;
+}
+
+.reset-button {
+  margin: 20px;
+  background-color: #ff4c4c;      
+  color: white;                 
+  border: none;                
+  padding: 10px 20px;          
+  font-size: 16px;              
+  font-weight: bold;             
+  border-radius: 6px;           
+  cursor: pointer;               
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1); 
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.reset-button:hover {
+  background-color: #e04343;   
+  transform: scale(1.05);       
+}
+
+.reset-button:active {
+  background-color: #b03030;     
+  transform: scale(0.95);       
+}
+.scoreboard {
+  margin: 20px;
+  background-color: #ff4c4c;      
+  color: white;                  
+  padding: 10px 20px;            
+  font-size: 16px;             
+  font-weight: bold;             
+  border-radius: 6px;           
+  cursor: pointer;            
+
+}
+.start-button{
+  margin: 20px;
+  background-color: #ff4c4c;     
+  color: white;                   
+  border: none;                 
+  padding: 10px 20px;            
+  font-size: 16px;               
+  font-weight: bold;             
+  border-radius: 6px;          
+  cursor: pointer;           
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1); 
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.start-button:hover {
+  background-color: #e04343;    
+  transform: scale(1.05);      
+}
+#music-toggle{
+  margin: 20px;
+  background-color: #ff4c4c;     
+  color: white;                  
+  border: none;                  
+  padding: 10px 20px;           
+  font-size: 16px;            
+  font-weight: bold;            
+  border-radius: 6px;       
+  cursor: pointer;          
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#music-toggle:hover {
+  background-color: #e04343;   
+  transform: scale(1.05);        
+}
+a{
+  margin: 20px;
+  background-color: #ff4c4c;      
+  color: white;                
+  border: none;                 
+  padding: 10px 20px;            
+  font-size: 16px;              
+  font-weight: bold;             
+  border-radius: 6px;           
+  cursor: pointer;               
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1); 
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  text-decoration: none;
+}
+
+a:hover {
+  background-color: #e04343;    
+  transform: scale(1.05);       
+}
